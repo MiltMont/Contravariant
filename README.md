@@ -1,3 +1,3 @@
 # Contravariant CMS
 
-Writting Mathematics in ´.mdx´ is tedious. This CMS is an alternative. 
+Writting mathematics with `MDX` is tedious. This CMS offers an alternative. 
