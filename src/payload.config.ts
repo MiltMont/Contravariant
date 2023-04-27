@@ -7,6 +7,7 @@ export default buildConfig({
   admin: {
     user: Users.slug,
   },
+  cors: '*', 
   collections: [
     Articles, 
     Categories, 
