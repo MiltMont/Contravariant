@@ -1,6 +1,6 @@
 import { buildConfig } from 'payload/config';
 import path from 'path';
-import Users from './collections/Users';
+import { Categories, Articles, Users } from './collections';
 import { payloadCloud } from '@payloadcms/plugin-cloud';
 
 export default buildConfig({
@@ -8,6 +8,8 @@ export default buildConfig({
     user: Users.slug,
   },
   collections: [
+    Articles, 
+    Categories, 
     Users,
   ],
   typescript: {
