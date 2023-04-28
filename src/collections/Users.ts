@@ -4,7 +4,7 @@ const Users: CollectionConfig = {
   slug: 'users',
   auth: true,
   admin: {
-    useAsTitle: 'email',
+    useAsTitle: 'name',
   },
   access: {
     read: () => true,
@@ -12,6 +12,19 @@ const Users: CollectionConfig = {
   fields: [
     // Email added by default
     // Add more fields as needed
+    {
+      name: 'name',
+      type: 'text', 
+      label: 'User Name'
+    },
+    {
+      name: 'roles', 
+      type: 'select', 
+      hasMany: true, 
+      defaultValue: ['editor'], 
+      required: true, 
+      options: ['admin', 'editor'],
+    },
   ],
 };
 

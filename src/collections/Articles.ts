@@ -1,4 +1,5 @@
 import { CollectionConfig } from "payload/types";
+import { isAdminHasSiteAccessOrPublished } from "../access/isAdminHasSiteAccessOrPublished";
 
 const Articles: CollectionConfig = {
     slug: 'articles', 
@@ -7,7 +8,9 @@ const Articles: CollectionConfig = {
         useAsTitle: 'title', 
     }, 
     access: {
-        read: () => true, 
+        // Admins or editor with site access can raead, 
+        // otherwhise users not logged in can only read published. 
+        read: isAdminHasSiteAccessOrPublished, 
     }, 
     fields: [
         {
@@ -30,7 +33,7 @@ const Articles: CollectionConfig = {
             hasMany: false, 
         }, 
         {
-            name: 'contant', 
+            name: 'content', 
             type: 'richText', // Must modify this!
         },
         { 
