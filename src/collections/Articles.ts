@@ -1,5 +1,6 @@
 import { CollectionConfig } from "payload/types";
 import { isAdminHasSiteAccessOrPublished } from "../access/isAdminHasSiteAccessOrPublished";
+import { TextBlock, MathEnvironment } from "../blocks";
 
 const Articles: CollectionConfig = {
     slug: 'articles', 
@@ -31,11 +32,17 @@ const Articles: CollectionConfig = {
             type: 'relationship', 
             relationTo: 'categories', 
             hasMany: false, 
-        }, 
-        {
-            name: 'content', 
-            type: 'richText', // Must modify this!
         },
+        {
+            label: 'Layout Blocks', 
+            name: 'layout', 
+            type: 'blocks',   
+            minRows: 1, 
+            blocks: [
+                TextBlock,
+                MathEnvironment,
+            ]
+        }, 
         { 
             name: 'status', 
             type: 'select', 
@@ -56,5 +63,6 @@ const Articles: CollectionConfig = {
         }
     ]
 }
+
 
 export default Articles
