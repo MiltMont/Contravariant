@@ -10,7 +10,7 @@ const Articles: CollectionConfig = {
         useAsTitle: 'title', 
     }, 
     access: {
-        // Admins or editor with site access can raead, 
+        // Admins or editor with site access can read, 
         // otherwhise users not logged in can only read published. 
         read: isAdminHasSiteAccessOrPublished, 
     }, 
@@ -41,7 +41,9 @@ const Articles: CollectionConfig = {
         {
             label: 'Article Summary',
             name: 'summary', 
-            type: 'richText', 
+            type: 'textarea',
+            required: true, 
+            maxLength:  160, 
         },
         {
             label: 'Image cover URL', 
@@ -80,13 +82,14 @@ const Articles: CollectionConfig = {
         {
             name: 'slug', 
             type: 'text', 
+            unique: true, 
             required: true, 
             index: true,
             admin: {
                 position: 'sidebar', 
             }, 
             hooks: {
-                beforeValidate: [formatSlug('title')]
+                beforeValidate: [formatSlug('title')] // Fix this!
             }
         }
     ]
