@@ -1,6 +1,7 @@
 import { CollectionConfig } from "payload/types";
 import { isAdminHasSiteAccessOrPublished } from "../access/isAdminHasSiteAccessOrPublished";
 import { TextBlock, MathEnvironment } from "../blocks";
+import formatSlug from "../utilities/formatSlug";
 
 const Articles: CollectionConfig = {
     slug: 'articles', 
@@ -22,6 +23,10 @@ const Articles: CollectionConfig = {
             name: 'author', 
             type: 'relationship', 
             relationTo: 'users', 
+            required: true, 
+            admin: {
+                position: 'sidebar', 
+            }, 
         }, 
         {
             name: 'publishedDate', 
@@ -32,6 +37,17 @@ const Articles: CollectionConfig = {
             type: 'relationship', 
             relationTo: 'categories', 
             hasMany: false, 
+        },
+        {
+            label: 'Article Summary',
+            name: 'summary', 
+            type: 'richText', 
+        },
+        {
+            label: 'Image cover URL', 
+            name: 'imageUrl', 
+            type: 'text', 
+            required: true, 
         },
         {
             label: 'Layout Blocks', 
@@ -59,6 +75,18 @@ const Articles: CollectionConfig = {
             defaultValue: 'draft', 
             admin: {
                 position: 'sidebar', 
+            }
+        },
+        {
+            name: 'slug', 
+            type: 'text', 
+            required: true, 
+            index: true,
+            admin: {
+                position: 'sidebar', 
+            }, 
+            hooks: {
+                beforeValidate: [formatSlug('title')]
             }
         }
     ]

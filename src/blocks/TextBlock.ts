@@ -6,7 +6,10 @@ const TextBlock: Block = {
         {
             label: 'Rich Text', 
             name: 'content', 
-            type: 'richText', 
+            type: 'richText',
+            admin: {
+                hideGutter: true, 
+            }
         }, 
     ] , 
 
