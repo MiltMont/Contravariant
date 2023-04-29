@@ -1,4 +1,4 @@
 import TextBlock from "./TextBlock";
-import MathEnvironment from "./MathEnviroment";
+import MathEnvironment from "./MathEnvironment";
 
 export {TextBlock, MathEnvironment}

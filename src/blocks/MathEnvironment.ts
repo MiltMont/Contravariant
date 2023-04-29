@@ -1,5 +1,6 @@
 import { Block } from "payload/types";
 
+
 const MathEnvironment: Block = {
     slug: 'mathEnvironment', 
     fields: [
@@ -12,6 +13,10 @@ const MathEnvironment: Block = {
                 {
                     label: 'Theorem', 
                     value: 'theorem', 
+                },
+                {
+                    label: 'Definition', 
+                    value: 'definition',
                 },
                 {
                     label: 'Proposition', 
